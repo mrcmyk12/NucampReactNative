@@ -27,12 +27,12 @@ export const fetchComments = () => (dispatch) => {
 
 export const commentsFailed = (errMess) => ({
 	type: ActionTypes.COMMENTS_FAILED,
-	payload: errMess,
+	payload: errMess
 });
 
 export const addComments = (comments) => ({
 	type: ActionTypes.ADD_COMMENTS,
-	payload: comments,
+	payload: comments
 });
 
 export const fetchCampsites = () => (dispatch) => {
@@ -62,17 +62,17 @@ export const fetchCampsites = () => (dispatch) => {
 };
 
 export const campsitesLoading = () => ({
-	type: ActionTypes.CAMPSITES_LOADING,
+	type: ActionTypes.CAMPSITES_LOADING
 });
 
 export const campsitesFailed = (errMess) => ({
 	type: ActionTypes.CAMPSITES_FAILED,
-	payload: errMess,
+	payload: errMess
 });
 
 export const addCampsites = (campsites) => ({
 	type: ActionTypes.ADD_CAMPSITES,
-	payload: campsites,
+	payload: campsites
 });
 
 export const fetchPromotions = () => (dispatch) => {
@@ -102,17 +102,17 @@ export const fetchPromotions = () => (dispatch) => {
 };
 
 export const promotionsLoading = () => ({
-	type: ActionTypes.PROMOTIONS_LOADING,
+	type: ActionTypes.PROMOTIONS_LOADING
 });
 
 export const promotionsFailed = (errMess) => ({
 	type: ActionTypes.PROMOTIONS_FAILED,
-	payload: errMess,
+	payload: errMess
 });
 
 export const addPromotions = (promotions) => ({
 	type: ActionTypes.ADD_PROMOTIONS,
-	payload: promotions,
+	payload: promotions
 });
 
 export const fetchPartners = () => (dispatch) => {
@@ -142,17 +142,17 @@ export const fetchPartners = () => (dispatch) => {
 };
 
 export const partnersLoading = () => ({
-	type: ActionTypes.PARTNERS_LOADING,
+	type: ActionTypes.PARTNERS_LOADING
 });
 
 export const partnersFailed = (errMess) => ({
 	type: ActionTypes.PARTNERS_FAILED,
-	payload: errMess,
+	payload: errMess
 });
 
 export const addPartners = (partners) => ({
 	type: ActionTypes.ADD_PARTNERS,
-	payload: partners,
+	payload: partners
 });
 
 export const postFavorite = (campsiteId) => (dispatch) => {
@@ -163,5 +163,23 @@ export const postFavorite = (campsiteId) => (dispatch) => {
 
 export const addFavorite = (campsiteId) => ({
 	type: ActionTypes.ADD_FAVORITE,
-	payload: campsiteId,
+	payload: campsiteId
+});
+
+export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
+	const newComment = {
+		campsiteId,
+		rating,
+		author,
+		text,
+		date: new Date().toISOString()
+	};
+	setTimeout(() => {
+		dispatch(addComment(newComment));
+	}, 2000);
+};
+
+export const addComment = (comment) => ({
+	type: ActionTypes.ADD_COMMENT,
+	payload: comment
 });
